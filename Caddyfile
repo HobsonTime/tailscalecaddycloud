@@ -1,0 +1,21 @@
+(cloudflare) {
+        tls {
+                dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+                resolvers 1.1.1.1 1.1.1.2
+        }
+}
+
+jellyfin.domainname.com {
+        reverse_proxy http://192.168.68.54:8096
+        import cloudflare
+}
+
+audiobookshelf.domainname.com {
+        reverse_proxy http://192.168.68.54:30067
+        import cloudflare
+}
+
+immich.domainname.com {
+        reverse_proxy http://192.168.68.54:30041
+        import cloudflare
+}
