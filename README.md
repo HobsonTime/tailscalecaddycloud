@@ -42,7 +42,21 @@ Caddy:      Receives request for jellyfin.<domainname>.com
 Caddy:      Notes jellyfin.<domainname>.com is mapped to http://192.168.23.43:8096
 Caddy:      Returns jellyfin.<domainname>.com access
 ```
- 
+
+## Before You Begin
+
+Change all of the variables in the .env file to the correct variables.
+
+If you already have Tailscale installed then skip to the cloudflare step
+
+Complete the cloudflare step and add the token to your .env file (or add it in a bit with portainer)
+
+**Starting the Program**
+
+Once the tokens are ready, you may run your instance with `docker compose up -d` if building it from the terminal.
+
+If you are using a docker manager such as **portainer** then you will put the token into the environment variables after you pull the repo. Just follow the steps it provides when you create from a git repo.
+
 ## Tailscale
  
 Ensure tailscale is already installed on your device and that you can access it.
@@ -87,10 +101,12 @@ Step 4: Set up your A Record. Follow the image format below as of April 2026. [S
 
 ![how to configure the proper A record](/images/Cloudflare.png)
 
-Step 5: [API Key Creation](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) Now, create an API key. Go to your Cloudflare account. Access Profile -> API tokens -> Create Token
+Step 5: [API token Creation](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) Now, create an API token. Go to your Cloudflare account. Access Profile -> API tokens -> Create Token
 > **Creating the token** Choose the correct controls. `Zone:Read, DNS:Edit`. Create a name. Create. Save the key in a very secure place. **ONLY** use it in an .ENV file or when prompted on something like portainer with environment variables.
 
-Step 6: See if it works!
+Step 6: Take this API token and place it into your .env file under the cloudflare variable.
+
+Step 7: See if it works!
 
 **If on mac or linux**
 ```
@@ -100,6 +116,7 @@ dig <domainname.com>
 ```
 nslookup <domainname.com>
 ```
+
  
 ### Domain Control
  
