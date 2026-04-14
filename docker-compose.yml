@@ -24,7 +24,7 @@ services:
     container_name: caddycloudflare
     network_mode: host
     volumes:
-      - /path/to/caddy/Caddyfile:/etc/caddy/Caddyfile # Change the file path to where you are hosting the caddyfile on your system.
+      - ${CADDYFILE_PATH}:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config_data:/config
     environment:
