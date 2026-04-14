@@ -43,9 +43,12 @@ Caddy:      Notes jellyfin.<domainname>.com is mapped to http://192.168.23.43:80
 Caddy:      Returns jellyfin.<domainname>.com access
 ```
 
-## Before You Begin
+## Start Here
 
-Change all of the variables in the .env file to the correct variables.
+If you are using a utilizing a docker manager such as portainer you will add your tokens/keys you create in the environment variables sections
+when you pull this github re
+
+If you are compiling this locally then change all of the variables in the .env file to the correct values. By following the steps below.
 
 If you already have Tailscale installed then skip to the cloudflare step
 
